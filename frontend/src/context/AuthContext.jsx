@@ -7,9 +7,12 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
-    // Add logic to store user data in localStorage or sessionStorage
     localStorage.setItem('user', JSON.stringify(userData));
+    if (userData.token) {
+      localStorage.setItem('token', userData.token); // ✅ Save token separately if present
+    }
   };
+  
 
   const logout = () => {
     setUser(null);
