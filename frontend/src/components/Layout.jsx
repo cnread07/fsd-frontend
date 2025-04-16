@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#0f172a] text-white flex flex-col">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-[#1a365d] shadow-lg z-50">
+      <header className="fixed top-0 w-full bg-[#0a0e1a] shadow-lg z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Name */}
@@ -20,22 +20,22 @@ const Layout = ({ children }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={theme.animations.default}
               >
-                <img src="/logo.svg" alt="Internify Logo" className="h-12 w-12" />
+                <img src="/logo.jpg" alt="Internify Logo" className="h-12 w-12 rounded-lg" />
               </motion.div>
-              <span className="text-2xl font-bold text-[#48bb78]">Internify</span>
+              <span className="text-2xl font-bold text-indigo-400">Internify</span>
             </Link>
 
             {/* Navigation */}
             <nav className="flex items-center space-x-8">
-              <Link to="/" className="hover:text-[#48bb78] transition-colors">
+              <Link to="/" className="hover:text-indigo-400 transition-colors">
                 Home
               </Link>
-              <Link to="/about" className="hover:text-[#48bb78] transition-colors">
+              <Link to="/about" className="hover:text-indigo-400 transition-colors">
                 About
               </Link>
               <Link
                 to="/login"
-                className="bg-[#2f855a] hover:bg-[#48bb78] px-6 py-2 rounded-lg transition-colors"
+                className="bg-indigo-600 hover:bg-indigo-500 px-6 py-2 rounded-lg transition-colors"
               >
                 Login
               </Link>

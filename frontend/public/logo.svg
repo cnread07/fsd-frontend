@@ -1,9 +1,17 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="48" height="48" rx="12" fill="#1A365D"/>
-  <path d="M24 12C17.3726 12 12 17.3726 12 24C12 30.6274 17.3726 36 24 36C30.6274 36 36 30.6274 36 24C36 17.3726 30.6274 12 24 12ZM24 32C19.5817 32 16 28.4183 16 24C16 19.5817 19.5817 16 24 16C28.4183 16 32 19.5817 32 24C32 28.4183 28.4183 32 24 32Z" fill="#48BB78"/>
-  <path d="M24 20C21.7909 20 20 21.7909 20 24C20 26.2091 21.7909 28 24 28C26.2091 28 28 26.2091 28 24C28 21.7909 26.2091 20 24 20Z" fill="#48BB78"/>
-  <path d="M24 16L28 12" stroke="#48BB78" stroke-width="2" stroke-linecap="round"/>
-  <path d="M24 36L28 32" stroke="#48BB78" stroke-width="2" stroke-linecap="round"/>
-  <path d="M12 24L16 20" stroke="#48BB78" stroke-width="2" stroke-linecap="round"/>
-  <path d="M32 24L36 20" stroke="#48BB78" stroke-width="2" stroke-linecap="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="#1E40AF" />
+  
+  <!-- Book Icon -->
+  <path d="M256 96C256 96 192 96 192 160V352C192 352 256 352 256 352C256 352 320 352 320 288V160C320 96 256 96 256 96Z" fill="#60A5FA" />
+  
+  <!-- Pages -->
+  <path d="M256 96V352" stroke="#BFDBFE" stroke-width="16" stroke-linecap="round" />
+  <path d="M192 160H320" stroke="#BFDBFE" stroke-width="16" stroke-linecap="round" />
+  <path d="M192 224H320" stroke="#BFDBFE" stroke-width="16" stroke-linecap="round" />
+  <path d="M192 288H320" stroke="#BFDBFE" stroke-width="16" stroke-linecap="round" />
+  
+  <!-- Star -->
+  <path d="M256 192L272 224L304 224L280 248L296 280L256 264L216 280L232 248L208 224L240 224L256 192Z" fill="#FCD34D" />
 </svg> 

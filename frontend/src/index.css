@@ -43,19 +43,53 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#1a365d];
+  background: #1a365d;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#48bb78] rounded-lg;
+  background: #4f46e5;
+  border-radius: 5px;
+  border: 2px solid #1a365d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#2f855a];
+  background: #6366f1;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4f46e5 #1a365d;
+}
+
+/* Dashboard Scrollbar Variation */
+.dashboard-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border: 2px solid #0f172a;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+/* For Firefox Dashboard Scrollbar */
+.dashboard-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed #0f172a;
 }
 
 /* Animations */

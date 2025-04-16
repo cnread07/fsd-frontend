@@ -3,163 +3,181 @@ import { theme } from '../theme';
 
 const About = () => {
   return (
-    <div className="container mx-auto px-4 py-16">
-      {/* Mission Section */}
-      <section className="mb-20">
+    <div className="min-h-screen bg-[#0a0e1a] text-white">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/50 to-[#0a0e1a] z-10" />
+        <div className="absolute inset-0 bg-[url('/about-bg.jpg')] bg-cover bg-center" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
+          animate={{ opacity: 1, y: 0 }}
+          transition={theme.animations.default}
+          className="relative z-20 text-center px-4"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-[#48bb78]">Internify</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            About <span className="text-indigo-400">Internify</span>
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
-            Internify is a comprehensive platform designed to bridge the gap between academic
-            learning and professional experience. We connect students with meaningful
-            internship opportunities while providing tools for tracking progress and
-            achieving career goals.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Empowering students through meaningful internship experiences
           </p>
         </motion.div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="mb-20">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Choose Internify?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: 'Comprehensive Tracking',
-              description:
-                'Monitor your internship progress, track milestones, and receive regular feedback from mentors.',
-              icon: '📊',
-            },
-            {
-              title: 'SDG Alignment',
-              description:
-                'Connect your internship experience with Sustainable Development Goals and make a real impact.',
-              icon: '🌍',
-            },
-            {
-              title: 'Mentor Support',
-              description:
-                'Get guidance from experienced mentors who help you navigate your professional journey.',
-              icon: '👥',
-            },
-            {
-              title: 'Career Development',
-              description:
-                'Build essential skills and gain practical experience that enhances your employability.',
-              icon: '🚀',
-            },
-            {
-              title: 'Progress Analytics',
-              description:
-                'Access detailed analytics about your performance and areas for improvement.',
-              icon: '📈',
-            },
-            {
-              title: 'Networking Opportunities',
-              description:
-                'Connect with industry professionals and build your professional network.',
-              icon: '🤝',
-            },
-          ].map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-[#1a365d] p-6 rounded-lg"
-            >
-              <div className="text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-              <p className="text-gray-300">{benefit.description}</p>
-            </motion.div>
-          ))}
+      {/* Mission Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={theme.animations.default}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-400">Our Mission</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              To bridge the gap between academic learning and professional experience by providing
+              students with structured internship opportunities and comprehensive progress tracking.
+            </p>
+          </motion.div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Student-Centric',
+                description:
+                  'Empowering students with tools to track their progress, set goals, and showcase their achievements.',
+                icon: (
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Mentor Support',
+                description:
+                  'Connecting students with experienced mentors who provide guidance and feedback throughout their internship journey.',
+                icon: (
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'SDG Alignment',
+                description:
+                  'Helping students understand how their work contributes to the United Nations Sustainable Development Goals.',
+                icon: (
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ ...theme.animations.default, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-[#0f172a] p-8 rounded-lg border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10"
+              >
+                <div className="mb-6 p-3 bg-indigo-500/10 rounded-lg w-fit">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-indigo-400">{feature.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* PO/PEO Section */}
-      <section className="mb-20">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Program Outcomes & Educational Objectives
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Team Section */}
+      <section className="py-20 px-4 bg-[#0f172a]">
+        <div className="container mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="bg-[#1a365d] p-6 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={theme.animations.default}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-[#48bb78]">
-              Program Outcomes (PO)
-            </h3>
-            <ul className="space-y-3 text-gray-300">
-              <li>• Engineering knowledge application</li>
-              <li>• Problem analysis and solution design</li>
-              <li>• Modern tool usage and experimentation</li>
-              <li>• Teamwork and communication skills</li>
-              <li>• Project management and finance</li>
-              <li>• Lifelong learning and adaptability</li>
-            </ul>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-400">Our Team</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Meet the passionate individuals behind Internify, dedicated to transforming the internship
+              experience for students worldwide.
+            </p>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="bg-[#1a365d] p-6 rounded-lg"
-          >
-            <h3 className="text-2xl font-semibold mb-4 text-[#48bb78]">
-              Program Educational Objectives (PEO)
-            </h3>
-            <ul className="space-y-3 text-gray-300">
-              <li>• Professional competence in chosen field</li>
-              <li>• Leadership and teamwork abilities</li>
-              <li>• Ethical and social responsibility</li>
-              <li>• Continuous professional development</li>
-              <li>• Innovation and entrepreneurship</li>
-              <li>• Global perspective and adaptability</li>
-            </ul>
-          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'John Doe',
+                role: 'Founder & CEO',
+                image: '/team-1.jpg',
+              },
+              {
+                name: 'Jane Smith',
+                role: 'Head of Education',
+                image: '/team-2.jpg',
+              },
+              {
+                name: 'Mike Johnson',
+                role: 'Technical Lead',
+                image: '/team-3.jpg',
+              },
+            ].map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ ...theme.animations.default, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-[#0f172a] rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/20 transition-shadow"
+              >
+                <div className="h-64 bg-gray-700 relative">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-indigo-400">{member.name}</h3>
+                  <p className="text-gray-400">{member.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section>
-        <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              name: 'Sarah Johnson',
-              role: 'Computer Science Student',
-              quote:
-                'Internify helped me secure an internship that perfectly aligned with my career goals. The progress tracking features were incredibly helpful!',
-            },
-            {
-              name: 'Michael Chen',
-              role: 'Electrical Engineering Student',
-              quote:
-                'The mentor support system is outstanding. My mentor provided valuable guidance throughout my internship journey.',
-            },
-            {
-              name: 'Emily Rodriguez',
-              role: 'Business Administration Student',
-              quote:
-                'The SDG mapping feature helped me understand how my work contributes to global sustainability goals.',
-            },
-          ].map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-[#1a365d] p-6 rounded-lg"
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={theme.animations.default}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-400">
+              Ready to Transform Your Internship Experience?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join Internify today and take the first step towards a more meaningful and
+              well-documented internship journey.
+            </p>
+            <motion.a
+              href="/signup"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
-              <p className="text-gray-300 mb-4 italic">"{testimonial.quote}"</p>
-              <div className="font-semibold">{testimonial.name}</div>
-              <div className="text-[#48bb78]">{testimonial.role}</div>
-            </motion.div>
-          ))}
+              Get Started
+            </motion.a>
+          </motion.div>
         </div>
       </section>
     </div>
