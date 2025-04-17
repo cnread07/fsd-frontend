@@ -1,164 +1,100 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { motion } from 'framer-motion';
 import {
-  FiHome,
-  FiBriefcase,
-  FiClipboard,
-  FiUsers,
-  FiSettings,
-  FiBook,
-  FiAward,
-  FiMessageSquare,
-  FiPieChart,
-  FiFileText,
-  FiCheckSquare
-} from 'react-icons/fi';
+  RiDashboardLine,
+  RiUserLine,
+  RiTeamLine,
+  RiFileList3Line,
+  RiSettingsLine,
+  RiLogoutBoxLine,
+  RiCalendarLine,
+  RiBarChartLine,
+  RiBuildingLine,
+  RiGlobalLine,
+  RiBriefcaseLine,
+  RiBookLine,
+  RiAwardLine,
+  RiMessageLine,
+} from 'react-icons/ri';
 
-const Sidebar = () => {
+const Sidebar = ({ userRole }) => {
   const { user } = useAuth();
-  const location = useLocation();
+  
+  // Use the provided userRole or fall back to the user's role from context
+  const role = userRole || user?.role;
 
-  const isActive = (path) => location.pathname === path;
+  const commonLinks = [
+    { path: '/dashboard', label: 'Dashboard', icon: RiDashboardLine },
+    { path: '/profile', label: 'Profile', icon: RiUserLine },
+    { path: '/settings', label: 'Settings', icon: RiSettingsLine },
+  ];
 
-  // Define navigation items based on user role
-  const getNavItems = () => {
-    const baseItems = [
-      {
-        title: 'Overview',
-        path: `/dashboard/${user?.role}`,
-        icon: <FiHome className="w-5 h-5" />
-      }
-    ];
-
-    const roleSpecificItems = {
-      student: [
-        {
-          title: 'Available Internships',
-          path: '/internships',
-          icon: <FiBriefcase className="w-5 h-5" />
-        },
-        {
-          title: 'My Applications',
-          path: '/applications',
-          icon: <FiClipboard className="w-5 h-5" />
-        },
-        {
-          title: 'Learning Resources',
-          path: '/resources',
-          icon: <FiBook className="w-5 h-5" />
-        },
-        {
-          title: 'Certificates',
-          path: '/certificates',
-          icon: <FiAward className="w-5 h-5" />
-        },
-        {
-          title: 'Messages',
-          path: '/messages',
-          icon: <FiMessageSquare className="w-5 h-5" />
-        }
-      ],
-      mentor: [
-        {
-          title: 'Internship Posts',
-          path: '/posts',
-          icon: <FiBriefcase className="w-5 h-5" />
-        },
-        {
-          title: 'Applications',
-          path: '/manage-applications',
-          icon: <FiClipboard className="w-5 h-5" />
-        },
-        {
-          title: 'Interns',
-          path: '/interns',
-          icon: <FiUsers className="w-5 h-5" />
-        },
-        {
-          title: 'Tasks',
-          path: '/tasks',
-          icon: <FiCheckSquare className="w-5 h-5" />
-        },
-        {
-          title: 'Reports',
-          path: '/reports',
-          icon: <FiPieChart className="w-5 h-5" />
-        }
-      ],
-      admin: [
-        {
-          title: 'Users',
-          path: '/users',
-          icon: <FiUsers className="w-5 h-5" />
-        },
-        {
-          title: 'Internships',
-          path: '/manage-internships',
-          icon: <FiBriefcase className="w-5 h-5" />
-        },
-        {
-          title: 'Reports',
-          path: '/admin-reports',
-          icon: <FiFileText className="w-5 h-5" />
-        },
-        {
-          title: 'Settings',
-          path: '/settings',
-          icon: <FiSettings className="w-5 h-5" />
-        }
-      ]
-    };
-
-    return [...baseItems, ...(roleSpecificItems[user?.role] || [])];
+  const roleSpecificLinks = {
+    student: [
+      { path: '/internships', label: 'Available Internships', icon: RiBriefcaseLine },
+      { path: '/applications', label: 'My Applications', icon: RiFileList3Line },
+      { path: '/progress', label: 'Progress', icon: RiBarChartLine },
+      { path: '/resources', label: 'Learning Resources', icon: RiBookLine },
+      { path: '/certificates', label: 'Certificates', icon: RiAwardLine },
+      { path: '/messages', label: 'Messages', icon: RiMessageLine },
+      { path: '/calendar', label: 'Calendar', icon: RiCalendarLine },
+      { path: '/sdg-tracking', label: 'SDG Tracking', icon: RiGlobalLine },
+    ],
+    mentor: [
+      { path: '/posts', label: 'Internship Posts', icon: RiBriefcaseLine },
+      { path: '/manage-applications', label: 'Applications', icon: RiFileList3Line },
+      { path: '/interns', label: 'Interns', icon: RiTeamLine },
+      { path: '/tasks', label: 'Tasks', icon: RiFileList3Line },
+      { path: '/reports', label: 'Reports', icon: RiBarChartLine },
+      { path: '/calendar', label: 'Calendar', icon: RiCalendarLine },
+      { path: '/sdg-impact', label: 'SDG Impact', icon: RiGlobalLine },
+    ],
+    admin: [
+      { path: '/users', label: 'Users', icon: RiUserLine },
+      { path: '/manage-internships', label: 'Internships', icon: RiBriefcaseLine },
+      { path: '/departments', label: 'Departments', icon: RiBuildingLine },
+      { path: '/mentors', label: 'Mentors', icon: RiTeamLine },
+      { path: '/reports', label: 'Reports', icon: RiFileList3Line },
+      { path: '/sdg-overview', label: 'SDG Overview', icon: RiGlobalLine },
+    ],
+    management: [
+      { path: '/analytics', label: 'Analytics', icon: RiBarChartLine },
+      { path: '/departments', label: 'Departments', icon: RiBuildingLine },
+      { path: '/reports', label: 'Reports', icon: RiFileList3Line },
+      { path: '/sdg-overview', label: 'SDG Overview', icon: RiGlobalLine },
+    ],
   };
 
-  if (!user) return null;
+  const allLinks = [...commonLinks, ...(roleSpecificLinks[role] || [])];
 
   return (
-    <aside className="bg-gray-900 text-white w-64 min-h-screen fixed left-0 top-16">
-      <nav className="mt-6">
-        <div className="px-4 py-2">
-          <h2 className="text-xs uppercase tracking-wider text-gray-400">
-            {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Dashboard
-          </h2>
-        </div>
-        
-        <div className="mt-4">
-          {getNavItems().map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center px-6 py-3 text-sm transition-colors duration-200 relative
-                ${isActive(item.path)
-                  ? 'text-white bg-blue-900'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}
+    <div className="w-64 bg-[#0f172a] border-r border-indigo-500/20 h-screen fixed left-0 top-0 overflow-y-auto">
+      <div className="p-6">
+        <h1 className="text-2xl font-bold text-white mb-8">Internify</h1>
+        <nav className="space-y-2">
+          {allLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                  isActive
+                    ? 'bg-indigo-500/10 text-indigo-400'
+                    : 'text-gray-400 hover:bg-indigo-500/5 hover:text-indigo-400'
+                }`
+              }
             >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center"
-              >
-                {item.icon}
-                <span className="ml-3">{item.title}</span>
-              </motion.div>
-              {isActive(item.path) && (
-                <motion.div
-                  layoutId="activeIndicator"
-                  className="absolute right-0 top-0 bottom-0 w-1 bg-blue-500"
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30
-                  }}
-                />
-              )}
-            </Link>
+              <link.icon className="text-xl" />
+              <span>{link.label}</span>
+            </NavLink>
           ))}
-        </div>
-      </nav>
-    </aside>
+          <button className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-indigo-500/5 hover:text-indigo-400 w-full">
+            <RiLogoutBoxLine className="text-xl" />
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
   );
 };
 

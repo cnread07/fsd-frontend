@@ -1,18 +1,18 @@
-import { useAuth } from '../context/AuthContext';
-import Header from './Header';
+import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import { useAuth } from '../context/AuthContext';
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ userRole }) => {
   const { user } = useAuth();
+  
+  // Use the provided userRole or fall back to the user's role from context
+  const role = userRole || user?.role;
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Header />
-      {user && <Sidebar />}
-      <main className={`${user ? 'ml-64' : ''} pt-16 min-h-screen bg-gray-100`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {children}
-        </div>
+    <div className="flex h-screen bg-[#0a0e1a]">
+      <Sidebar userRole={role} />
+      <main className="flex-1 ml-64 p-6 overflow-y-auto">
+        <Outlet />
       </main>
     </div>
   );
