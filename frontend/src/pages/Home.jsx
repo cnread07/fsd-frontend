@@ -116,13 +116,13 @@ const Home = () => {
             >
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">
                 {feature.title}
-              </h3>
+                </h3>
               {feature.description && (
                 <p className="text-gray-400 mb-6">{feature.description}</p>
               )}
               <img src={feature.chart} alt="Chart" className="w-full" />
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
       </section>
 
@@ -149,7 +149,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
       </section>
 
       {/* CTA Section */}
