@@ -183,6 +183,174 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Features and Benefits Section */}
+      <section className="py-20 px-4 bg-[#0a0e1a]">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+              Empowering Every Role
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Discover how Internify transforms the internship experience for everyone involved
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Student Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[#0f172a] rounded-xl overflow-hidden border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 p-8"
+            >
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-indigo-500/10 rounded-lg">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-indigo-400 ml-4">For Students</h3>
+              </div>
+              <ul className="space-y-4 text-gray-400">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Real-time progress tracking and milestone achievements</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Direct communication with industry mentors</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>SDG-aligned project tracking and impact measurement</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Skill development tracking and certification</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Career guidance and networking opportunities</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Mentor Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-[#0f172a] rounded-xl overflow-hidden border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 p-8"
+            >
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-indigo-500/10 rounded-lg">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-indigo-400 ml-4">For Mentors</h3>
+              </div>
+              <ul className="space-y-4 text-gray-400">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Streamlined student progress monitoring</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Automated task assignment and tracking</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Performance analytics and feedback tools</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Resource sharing and knowledge base</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Professional development opportunities</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Management Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-[#0f172a] rounded-xl overflow-hidden border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 p-8"
+            >
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-indigo-500/10 rounded-lg">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-indigo-400 ml-4">For Management</h3>
+              </div>
+              <ul className="space-y-4 text-gray-400">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Comprehensive program analytics and reporting</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Department-wide performance metrics</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Resource allocation and optimization</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Strategic planning and decision support</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-indigo-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Quality assurance and compliance tracking</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
