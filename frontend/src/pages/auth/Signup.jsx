@@ -36,7 +36,8 @@ const Signup = () => {
     }
     // Add signup logic here
     console.log(formData);
-    navigate('/login');
+    // Redirect to respective dashboard based on role
+    navigate(`/${formData.role}-dashboard`);
   };
 
   const renderRoleSpecificFields = () => {
