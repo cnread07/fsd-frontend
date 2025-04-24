@@ -130,7 +130,7 @@ const Signup = () => {
           </>
         );
 
-      case 'management':
+      // case 'management':
         return (
           <>
             <div>
@@ -148,7 +148,7 @@ const Signup = () => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-400">
                 Department Managed
               </label>
@@ -165,7 +165,7 @@ const Signup = () => {
                 <option value="student">Student Affairs</option>
                 <option value="career">Career Development</option>
               </select>
-            </div>
+            </div> */}
           </>
         );
 
