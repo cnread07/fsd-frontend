@@ -19,6 +19,7 @@ const Signup = () => {
     adminCode: '',
     accessLevel: ''
   });
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,16 +29,61 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
+    // Basic validation
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
       return;
     }
-    // Add signup logic here
-    console.log(formData);
-    // Redirect to respective dashboard based on role
-    navigate(`/${formData.role}-dashboard`);
+
+    try {
+      // Prepare the data to send to backend
+      const userData = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        role: formData.role
+      };
+
+      // Add role-specific fields
+      if (formData.role === 'student') {
+        userData.department = formData.department;
+        userData.studentId = formData.studentId;
+      } else if (formData.role === 'mentor') {
+        userData.expertise = formData.expertise;
+        userData.experience = formData.experience;
+        userData.company = formData.company;
+      } else if (formData.role === 'management') {
+        userData.position = formData.position;
+        userData.department_managed = formData.department_managed;
+      } else if (formData.role === 'admin') {
+        userData.adminCode = formData.adminCode;
+        userData.accessLevel = formData.accessLevel;
+      }
+
+      const response = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Signup failed');
+      }
+
+      alert('Account created successfully! Please login.');
+      navigate('/login');
+    } catch (err) {
+      console.error('Signup error:', err);
+      setError(err.message || 'Something went wrong. Try again later.');
+    }
   };
 
   const renderRoleSpecificFields = () => {
@@ -224,6 +270,12 @@ const Signup = () => {
             <h2 className="text-3xl font-bold text-white">Create Account</h2>
             <p className="text-gray-400">Join our internship platform</p>
           </div>
+
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 text-white rounded-lg">
+              {error}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
