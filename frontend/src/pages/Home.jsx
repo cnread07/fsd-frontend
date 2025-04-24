@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const partners = [
-    { name: 'Athena', logo: '/partners/athena.svg' },
-    { name: 'BaronFig', logo: '/partners/baronfig.svg' },
-    { name: 'TrustFund', logo: '/partners/trustfund.svg' },
-    { name: 'Native', logo: '/partners/native.svg' },
-    { name: 'SmartMoney', logo: '/partners/smartmoney.svg' }
+    { name: 'Athena', logo: '/images/athenajpeg.jpeg' },
+    { name: 'BaronFig', logo: '/images/baronfig.jpg' },
+    { name: 'TrustFund', logo: '/images/trustfund.jpg' },
+    { name: 'Native', logo: '/images/native.jpg' },
+    { name: 'SmartMoney', logo: '/images/smartmoney.png' }
   ];
-
+  
   const features = [
     {
       title: 'Active users right now',
@@ -87,7 +87,7 @@ const Home = () => {
                 key={partner.name}
                 src={partner.logo}
                 alt={partner.name}
-                className="h-8 opacity-60 hover:opacity-100 transition-opacity"
+                className="opacity-60 hover:opacity-100 transition-opacity rounded-2xl w-20 h-20"
                 whileHover={{ scale: 1.05 }}
               />
             ))}
@@ -142,7 +142,7 @@ const Home = () => {
               "Internify has revolutionized how we manage our internship program. The platform's innovative features and intuitive design have significantly improved our ability to track progress and ensure success for both interns and mentors."
             </p>
             <div className="flex items-center justify-center gap-4">
-              <img src="/images/testimonial-avatar.jpg" alt="Testimonial" className="w-12 h-12 rounded-full ring-2 ring-indigo-500/50" />
+              <img src="/images/sarahjohnson.jpg" alt="Testimonial" className="w-20 h-20 rounded-full ring-2 ring-indigo-500/50" />
               <div className="text-left">
                 <p className="font-semibold bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">Sarah Johnson</p>
                 <p className="text-gray-400">HR Director at TechCorp</p>
