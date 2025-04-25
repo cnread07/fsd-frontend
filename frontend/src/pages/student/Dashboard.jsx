@@ -140,7 +140,7 @@ const Dashboard = () => {
         </div>
 
         {/* Charts Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {/* Progress Chart */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -176,44 +176,6 @@ const Dashboard = () => {
                     fill="url(#progressColor)"
                   />
                 </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </motion.div>
-
-          {/* SDG Distribution */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
-          >
-            <h2 className="text-xl font-semibold text-white mb-6">SDG Distribution</h2>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={sdgData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {sdgData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#1e293b',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: '#fff',
-                    }}
-                  />
-                </PieChart>
               </ResponsiveContainer>
             </div>
           </motion.div>

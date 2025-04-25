@@ -38,7 +38,7 @@ const Sidebar = ({ userRole }) => {
       { path: '/certificates', label: 'Certificates', icon: RiAwardLine },
       { path: '/messages', label: 'Messages', icon: RiMessageLine },
       { path: '/calendar', label: 'Calendar', icon: RiCalendarLine },
-      { path: '/sdg-tracking', label: 'SDG Tracking', icon: RiGlobalLine },
+     
     ],
     mentor: [
       { path: '/posts', label: 'Internship Posts', icon: RiBriefcaseLine },
