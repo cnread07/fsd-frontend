@@ -91,7 +91,8 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="space-y-6">
+    // Added pb-20 to create space for footer
+    <div className="space-y-6 mx-4 md:mx-6 lg:mx-8 pb-20">
       {/* Welcome Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -99,29 +100,29 @@ const Dashboard = () => {
         transition={{ duration: 0.4 }}
         className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
       >
-        <h1 className="text-2xl font-bold text-white mb-2">Management Dashboard</h1>
-        <p className="text-gray-400">High-level overview of internship program performance and impact</p>
+        <h1 className="text-2xl font-bold text-white mb-2 break-words">Management Overview</h1>
+        <p className="text-gray-400 break-words">High-level overview of internship program performance and impact</p>
       </motion.div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {keyMetrics.map((metric, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
+            className="bg-[#0f172a] rounded-xl p-4 border border-indigo-500/20"
           >
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-indigo-500/10 rounded-lg">
-                <metric.icon className="text-2xl text-indigo-400" />
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-indigo-500/10 rounded-lg flex-shrink-0">
+                <metric.icon className="text-xl text-indigo-400" />
               </div>
-              <div>
-                <p className="text-gray-400">{metric.title}</p>
+              <div className="min-w-0">
+                <p className="text-gray-400 text-sm truncate">{metric.title}</p>
                 <div className="flex items-center space-x-2">
-                  <h3 className="text-2xl font-bold text-white">{metric.value}</h3>
-                  <span className="text-sm text-emerald-400">{metric.change}</span>
+                  <h3 className="text-xl font-bold text-white">{metric.value}</h3>
+                  <span className="text-xs text-emerald-400">{metric.change}</span>
                 </div>
               </div>
             </div>
@@ -130,7 +131,7 @@ const Dashboard = () => {
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Yearly Trends */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,13 +139,16 @@ const Dashboard = () => {
           transition={{ duration: 0.4, delay: 0.5 }}
           className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
         >
-          <h2 className="text-xl font-semibold text-white mb-6">Yearly Trends</h2>
-          <div className="h-[300px]">
+          <h2 className="text-xl font-semibold text-white mb-4 break-words">Yearly Trends</h2>
+          <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={yearlyTrends}>
+              <LineChart 
+                data={yearlyTrends} 
+                margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="year" stroke="#94a3b8" />
-                <YAxis stroke="#94a3b8" />
+                <XAxis dataKey="year" stroke="#94a3b8" tick={{ fontSize: 12 }} />
+                <YAxis stroke="#94a3b8" tick={{ fontSize: 12 }} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: '#1e293b',
@@ -179,12 +183,12 @@ const Dashboard = () => {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
         >
-          <h2 className="text-xl font-semibold text-white mb-6">SDG Impact Analysis</h2>
-          <div className="h-[300px]">
+          <h2 className="text-xl font-semibold text-white mb-4 break-words">SDG Impact Analysis</h2>
+          <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={sdgImpact}>
+              <RadarChart cx="50%" cy="50%" outerRadius="70%" data={sdgImpact}>
                 <PolarGrid stroke="#1e293b" />
-                <PolarAngleAxis dataKey="sdg" stroke="#94a3b8" />
+                <PolarAngleAxis dataKey="sdg" stroke="#94a3b8" tick={{ fontSize: 10 }} />
                 <PolarRadiusAxis stroke="#94a3b8" />
                 <Radar
                   name="SDG Score"
@@ -200,7 +204,7 @@ const Dashboard = () => {
       </div>
 
       {/* Department Performance and PO Achievement */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Department Performance */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -208,13 +212,16 @@ const Dashboard = () => {
           transition={{ duration: 0.4, delay: 0.7 }}
           className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
         >
-          <h2 className="text-xl font-semibold text-white mb-6">Department Performance</h2>
-          <div className="h-[300px]">
+          <h2 className="text-xl font-semibold text-white mb-4 break-words">Department Performance</h2>
+          <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={departmentPerformance}>
+              <BarChart 
+                data={departmentPerformance} 
+                margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="department" stroke="#94a3b8" />
-                <YAxis stroke="#94a3b8" />
+                <XAxis dataKey="department" stroke="#94a3b8" tick={{ fontSize: 10 }} />
+                <YAxis stroke="#94a3b8" tick={{ fontSize: 12 }} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: '#1e293b',
@@ -237,9 +244,9 @@ const Dashboard = () => {
           transition={{ duration: 0.4, delay: 0.8 }}
           className="bg-[#0f172a] rounded-xl p-6 border border-indigo-500/20"
         >
-          <h2 className="text-xl font-semibold text-white mb-6">Program Outcomes Achievement</h2>
-          <div className="h-[300px]">
-            <ResponsiveContainer width="100%" height="100%">
+          <h2 className="text-xl font-semibold text-white mb-4 break-words">Program Outcomes Achievement</h2>
+          <div className="h-64 md:h-80">
+            <ResponsiveContainer width="100%" height="80%">
               <PieChart>
                 <Pie
                   data={poAchievement}
@@ -265,14 +272,14 @@ const Dashboard = () => {
                 />
               </PieChart>
             </ResponsiveContainer>
-            <div className="mt-4 grid grid-cols-2 gap-4">
+            <div className="mt-1 grid grid-cols-2 gap-2">
               {poAchievement.map((po, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <div
-                    className="w-3 h-3 rounded-full"
+                    className="w-3 h-3 rounded-full flex-shrink-0"
                     style={{ backgroundColor: COLORS[index % COLORS.length] }}
                   />
-                  <span className="text-sm text-gray-400">
+                  <span className="text-sm text-gray-400 truncate">
                     {po.name}: {po.value}%
                   </span>
                 </div>
@@ -285,4 +292,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard; 
+export default Dashboard;

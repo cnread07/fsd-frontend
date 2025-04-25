@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -11,8 +11,19 @@ const Login = () => {
     role: 'student'
   });
 
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate(`/${formData.role}-dashboard`);
+    }
+  }, [user, navigate, formData.role]);
+
+  // If user is already logged in, don't render the login form
+  if (user) {
+    return null;
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,6 +102,7 @@ const Login = () => {
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
+                // autoComplete='off'
               />
             </div>
 

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
   RiDashboardLine,
@@ -16,28 +16,35 @@ import {
   RiAwardLine,
   RiMessageLine,
 } from 'react-icons/ri';
+import Progress from '../pages/student/Progress';
 
 const Sidebar = ({ userRole }) => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   
   // Use the provided userRole or fall back to the user's role from context
   const role = userRole || user?.role;
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   const commonLinks = [
-    { path: '/dashboard', label: 'Dashboard', icon: RiDashboardLine },
-    { path: '/profile', label: 'Profile', icon: RiUserLine },
-    { path: '/settings', label: 'Settings', icon: RiSettingsLine },
+    { path: '/student-dashboard', label: 'Dashboard', icon: RiDashboardLine },
+    { path: '/student-profile', label: 'Profile', icon: RiUserLine },
+    { path: '/student-settings', label: 'Settings', icon: RiSettingsLine },
   ];
 
   const roleSpecificLinks = {
     student: [
-      { path: '/internships', label: 'Available Internships', icon: RiBriefcaseLine },
-      { path: '/applications', label: 'My Applications', icon: RiFileList3Line },
-      { path: '/progress', label: 'Progress', icon: RiBarChartLine },
-      { path: '/resources', label: 'Learning Resources', icon: RiBookLine },
-      { path: '/certificates', label: 'Certificates', icon: RiAwardLine },
-      { path: '/messages', label: 'Messages', icon: RiMessageLine },
-      { path: '/calendar', label: 'Calendar', icon: RiCalendarLine },
+      { path: '/student-internships', label: 'Available Internships', icon: RiBriefcaseLine },
+      { path: '/student-applications', label: 'My Applications', icon: RiFileList3Line },
+      { path: '/student-progress', label: 'Progress', icon: RiBarChartLine },
+      // { path: '/resources', label: 'Learning Resources', icon: RiBookLine },
+      { path: '/student-certificates', label: 'Certificates', icon: RiAwardLine },
+      // { path: '/messages', label: 'Messages', icon: RiMessageLine },
+      { path: '/student-calendar', label: 'Calendar', icon: RiCalendarLine },
      
     ],
     mentor: [
@@ -56,6 +63,7 @@ const Sidebar = ({ userRole }) => {
       { path: '/mentors', label: 'Mentors', icon: RiTeamLine },
       { path: '/reports', label: 'Reports', icon: RiFileList3Line },
       { path: '/sdg-overview', label: 'SDG Overview', icon: RiGlobalLine },
+      {path:  '/management-dashboard',label:'Statistics & Overview',icon: RiBarChartLine},
     ],
     management: [
       { path: '/analytics', label: 'Analytics', icon: RiBarChartLine },
@@ -88,7 +96,10 @@ const Sidebar = ({ userRole }) => {
               <span>{link.label}</span>
             </NavLink>
           ))}
-          <button className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-indigo-500/5 hover:text-indigo-400 w-full">
+          <button 
+            onClick={handleLogout}
+            className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-indigo-500/5 hover:text-indigo-400 w-full"
+          >
             <RiLogoutBoxLine className="text-xl" />
             <span>Logout</span>
           </button>
@@ -98,4 +109,4 @@ const Sidebar = ({ userRole }) => {
   );
 };
 
-export default Sidebar; 
+export default Sidebar;
