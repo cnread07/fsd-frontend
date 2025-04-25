@@ -65,7 +65,6 @@ const Signup = () => {
                 <option value="ee">Electrical Engineering</option>
                 <option value="me">Mechanical Engineering</option>
                 <option value="ce">Civil Engineering</option>
-                <option value="ba">Business Administration</option>
               </select>
             </div>
 
@@ -153,8 +152,6 @@ const Signup = () => {
               >
                 <option value="">Select Department</option>
                 <option value="internship">Internship Program</option>
-                <option value="academic">Academic Affairs</option>
-                <option value="student">Student Affairs</option>
                 <option value="career">Career Development</option>
               </select>
             </div>
