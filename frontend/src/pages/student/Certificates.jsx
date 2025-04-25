@@ -15,7 +15,7 @@ const Certificates = () => {
       credentialURL: 'https://freecodecamp.org/certification/user/web-dev',
       skills: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
       status: 'completed',
-      image: '/certificates/web-dev.png'
+      image: '/images/images.jpeg'
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const Certificates = () => {
       credentialURL: 'https://datacamp.com/certificates/python-ds',
       skills: ['Python', 'NumPy', 'Pandas', 'Data Visualization'],
       status: 'completed',
-      image: '/certificates/python-ds.png'
+      image: '/images/573cfa30e528.png'
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ const Certificates = () => {
       credentialURL: 'https://aws.training/certification/verify',
       skills: ['Cloud Computing', 'AWS Services', 'Cloud Security'],
       status: 'completed',
-      image: '/certificates/aws-cp.png'
+      image: '/images/image771495085737125892.webp'
     }
   ]);
 
