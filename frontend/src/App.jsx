@@ -4,10 +4,11 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import Home from './pages/Home';
 import About from './pages/About';
-import StudentDashboard from './pages/dashboard/StudentDashboard';
-import AdminDashboard from './pages/dashboard/AdminDashboard';
-import MentorDashboard from './pages/dashboard/MentorDashboard';
-import ManagementDashboard from './pages/dashboard/ManagementDashboard';
+import StudentDashboard from './pages/student/Dashboard';
+import AdminDashboard from './pages/admin/Dashboard';
+import MentorDashboard from './pages/Mentor/Dashboard';
+import ManagementDashboard from './pages/management/Dashboard';
+
 import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 

@@ -22,32 +22,49 @@ const Login = () => {
     }));
   };
 
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password
-        })
+  
+    // Hardcoded user for testing
+    const mockUser = {
+      email: 'test@example.com',
+      password: '123456',
+      token: 'fake-jwt-token',
+      role: formData.role,
+      name: 'Test User'
+    };
+  
+    // Simulate backend logic
+    if (
+      formData.email === mockUser.email &&
+      formData.password === mockUser.password
+    ) {
+      // Fake login context (assuming login() stores the token/user in context)
+      login({
+        token: mockUser.token,
+        user: { name: mockUser.name, email: mockUser.email }
       });
-
-      const data = await res.json();
-      if (res.ok) {
-        login(data); // context login
-        navigate(`/${formData.role}-dashboard`);
-      } else {
-        alert(data.message || 'Login failed');
-      }
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('Something went wrong. Try again later.');
+  
+      navigate(`/${formData.role}-dashboard`);
+    } else {
+      alert('Invalid credentials. Try email: test@example.com / password: 123456');
     }
   };
+  
+
+    //   const data = await res.json();
+    //   if (res.ok) {
+    //     login(data); // context login
+    //     navigate(`/${formData.role}-dashboard`);
+    //   } else {
+    //     alert(data.message || 'Login failed');
+    //   }
+    // } catch (err) {
+    //   console.error('Login error:', err);
+    //   alert('Something went wrong. Try again later.');
+    // }
+  // };
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">

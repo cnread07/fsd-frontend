@@ -1,3 +1,4 @@
+// 
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -33,57 +34,16 @@ const Signup = () => {
     e.preventDefault();
     setError('');
 
-    // Basic validation
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
-    try {
-      // Prepare the data to send to backend
-      const userData = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        role: formData.role
-      };
+    // Simulate account creation delay
+    await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Add role-specific fields
-      if (formData.role === 'student') {
-        userData.department = formData.department;
-        userData.studentId = formData.studentId;
-      } else if (formData.role === 'mentor') {
-        userData.expertise = formData.expertise;
-        userData.experience = formData.experience;
-        userData.company = formData.company;
-      } else if (formData.role === 'management') {
-        userData.position = formData.position;
-        userData.department_managed = formData.department_managed;
-      } else if (formData.role === 'admin') {
-        userData.adminCode = formData.adminCode;
-        userData.accessLevel = formData.accessLevel;
-      }
-
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Signup failed');
-      }
-
-      alert('Account created successfully! Please login.');
-      navigate('/login');
-    } catch (err) {
-      console.error('Signup error:', err);
-      setError(err.message || 'Something went wrong. Try again later.');
-    }
+    alert('Account created successfully! Please login.');
+    navigate('/login');
   };
 
   const renderRoleSpecificFields = () => {
@@ -92,9 +52,7 @@ const Signup = () => {
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Department
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Department</label>
               <select
                 name="department"
                 value={formData.department}
@@ -112,9 +70,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Student ID
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Student ID</label>
               <input
                 type="text"
                 name="studentId"
@@ -131,9 +87,7 @@ const Signup = () => {
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Area of Expertise
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Area of Expertise</label>
               <input
                 type="text"
                 name="expertise"
@@ -146,9 +100,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Years of Experience
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Years of Experience</label>
               <input
                 type="number"
                 name="experience"
@@ -161,9 +113,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Company/Organization
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Company/Organization</label>
               <input
                 type="text"
                 name="company"
@@ -176,13 +126,11 @@ const Signup = () => {
           </>
         );
 
-      // case 'management':
+      case 'management':
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Position
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Position</label>
               <input
                 type="text"
                 name="position"
@@ -194,10 +142,8 @@ const Signup = () => {
               />
             </div>
 
-            {/* <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Department Managed
-              </label>
+            <div>
+              <label className="block text-sm font-medium text-gray-400">Department Managed</label>
               <select
                 name="department_managed"
                 value={formData.department_managed}
@@ -211,7 +157,7 @@ const Signup = () => {
                 <option value="student">Student Affairs</option>
                 <option value="career">Career Development</option>
               </select>
-            </div> */}
+            </div>
           </>
         );
 
@@ -219,9 +165,7 @@ const Signup = () => {
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Admin Code
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Admin Code</label>
               <input
                 type="password"
                 name="adminCode"
@@ -234,9 +178,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Access Level
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Access Level</label>
               <select
                 name="accessLevel"
                 value={formData.accessLevel}
@@ -279,9 +221,7 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Full Name
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Full Name</label>
               <input
                 type="text"
                 name="name"
@@ -293,9 +233,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Email
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Email</label>
               <input
                 type="email"
                 name="email"
@@ -307,9 +245,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Password
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Password</label>
               <input
                 type="password"
                 name="password"
@@ -321,9 +257,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Confirm Password
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Confirm Password</label>
               <input
                 type="password"
                 name="confirmPassword"
@@ -335,9 +269,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400">
-                Role
-              </label>
+              <label className="block text-sm font-medium text-gray-400">Role</label>
               <select
                 name="role"
                 value={formData.role}
