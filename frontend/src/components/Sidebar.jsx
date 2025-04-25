@@ -30,14 +30,23 @@ const Sidebar = ({ userRole }) => {
     navigate('/');
   };
 
-  const commonLinks = [
-    { path: '/student-dashboard', label: 'Dashboard', icon: RiDashboardLine },
-    { path: '/student-profile', label: 'Profile', icon: RiUserLine },
-    { path: '/student-settings', label: 'Settings', icon: RiSettingsLine },
-  ];
+  // const commonLinks = [
+  //     { path: '', label: '', icon: RiDashboardLine },
+  //     { path: '', label: '', icon: RiUserLine },
+  //     { path: '', label: '', icon: RiSettingsLine },
+  //   ];
+
+  // const commonLinks = [
+  //   { path: '/student-dashboard', label: 'Dashboard', icon: RiDashboardLine },
+  //   { path: '/student-profile', label: 'Profile', icon: RiUserLine },
+  //   { path: '/student-settings', label: 'Settings', icon: RiSettingsLine },
+  // ];
 
   const roleSpecificLinks = {
     student: [
+      { path: '/student-dashboard', label: 'Dashboard', icon: RiDashboardLine },
+        { path: '/student-profile', label: 'Profile', icon: RiUserLine },
+        { path: '/student-settings', label: 'Settings', icon: RiSettingsLine },
       { path: '/student-internships', label: 'Available Internships', icon: RiBriefcaseLine },
       { path: '/student-applications', label: 'My Applications', icon: RiFileList3Line },
       { path: '/student-progress', label: 'Progress', icon: RiBarChartLine },
@@ -48,6 +57,9 @@ const Sidebar = ({ userRole }) => {
      
     ],
     mentor: [
+      { path: '/mentor-dashboard', label: 'Dashboard', icon: RiDashboardLine },
+        { path: '/mentor-profile', label: 'Profile', icon: RiUserLine },
+        { path: '/mentor-settings', label: 'Settings', icon: RiSettingsLine },
       { path: '/posts', label: 'Internship Posts', icon: RiBriefcaseLine },
       { path: '/manage-applications', label: 'Applications', icon: RiFileList3Line },
       { path: '/interns', label: 'Interns', icon: RiTeamLine },
@@ -57,6 +69,9 @@ const Sidebar = ({ userRole }) => {
       { path: '/sdg-impact', label: 'SDG Impact', icon: RiGlobalLine },
     ],
     admin: [
+      { path: '/admin-dashboard', label: 'Dashboard', icon: RiDashboardLine },
+        { path: '/admin-profile', label: 'Profile', icon: RiUserLine },
+        { path: '/admin-settings', label: 'Settings', icon: RiSettingsLine },
       { path: '/users', label: 'Users', icon: RiUserLine },
       { path: '/manage-internships', label: 'Internships', icon: RiBriefcaseLine },
       { path: '/departments', label: 'Departments', icon: RiBuildingLine },
@@ -73,7 +88,7 @@ const Sidebar = ({ userRole }) => {
     ],
   };
 
-  const allLinks = [...commonLinks, ...(roleSpecificLinks[role] || [])];
+  const allLinks = [...(roleSpecificLinks[role] || [])];
 
   return (
     <div className="w-64 bg-[#0f172a] border-r border-indigo-500/20 h-screen fixed left-0 top-0 overflow-y-auto">
