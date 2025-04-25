@@ -68,7 +68,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg opacity-20 blur-xl"></div>
               <img
-                src="/images/dashboard-preview.png"
+                src="/public/images/dash.png"
                 alt="Dashboard Preview"
                 className="relative rounded-lg shadow-2xl border border-indigo-500/20"
               />

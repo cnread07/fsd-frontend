@@ -35,12 +35,12 @@ const Dashboard = () => {
   ];
 
   const monthlyProgress = [
-    { name: 'Jan', internships: 45, placements: 35 },
-    { name: 'Feb', internships: 55, placements: 42 },
-    { name: 'Mar', internships: 65, placements: 48 },
-    { name: 'Apr', internships: 75, placements: 55 },
-    { name: 'May', internships: 85, placements: 65 },
-    { name: 'Jun', internships: 95, placements: 75 },
+    { name: 'Jan', internships: 45,  },
+    { name: 'Feb', internships: 55,  },
+    { name: 'Mar', internships: 65,  },
+    { name: 'Apr', internships: 75,  },
+    { name: 'May', internships: 85,  },
+    { name: 'Jun', internships: 95,  },
   ];
 
   const statusDistribution = [
