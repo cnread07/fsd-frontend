@@ -19,6 +19,10 @@ import Progress from './pages/student/Progress';
 import Settings from './pages/student/Settings';
 import Calendar from './pages/student/Calender';
 import Certificates from './pages/student/Certificates';
+// import Application from './pages/admin/Application';
+import ADInternships from './pages/admin/InternshipsAD';
+import AdminApplications from './pages/admin/Application';
+
 function App() {
   return (
     <ThemeProvider>
@@ -41,9 +45,13 @@ function App() {
               <Route path="/student-settings" element={<Settings />} />
               <Route path="/student-profile" element={<StudentProfile />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
+              {/* <Route path="/admin-application" element={<Application />} /> */}
+              {/* <Route path="/manage-internships" element={<ADInternships />} /> */}
               <Route path="/mentor-dashboard" element={<MentorDashboard />} />
               <Route path="/management-dashboard" element={<ManagementDashboard />} />
               <Route path="/internships" element={<Internships />} />
+              <Route path="/admin/admin-application" element={<AdminApplications />} />
+              <Route path="/admin/manage-internships" element={<ADInternships />} />
               {/* <Route path="/" element={<Navigate to="/login" />} /> */}
 
             </Routes>

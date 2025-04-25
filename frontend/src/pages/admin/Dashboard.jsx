@@ -28,10 +28,10 @@ import DashboardLayout from '../../components/DashboardLayout';
 const Dashboard = () => {
   // Sample data for charts and statistics
   const departmentStats = [
-    { name: 'Computer Science', students: 120, mentors: 12, internships: 95 },
-    { name: 'Electronics', students: 85, mentors: 8, internships: 70 },
-    { name: 'Mechanical', students: 95, mentors: 10, internships: 80 },
-    { name: 'Civil', students: 75, mentors: 7, internships: 60 },
+    { name: 'CSE', students: 120, mentors: 12, internships: 95 },
+    { name: 'ECS', students: 85, mentors: 8, internships: 70 },
+    { name: 'ME', students: 95, mentors: 10, internships: 80 },
+    { name: 'CE', students: 75, mentors: 7, internships: 60 },
   ];
 
   const monthlyProgress = [
@@ -265,7 +265,7 @@ const Dashboard = () => {
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#1e293b',
+                      backgroundColor: '#d8dce3',
                       border: 'none',
                       borderRadius: '8px',
                       color: '#fff',
