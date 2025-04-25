@@ -78,7 +78,7 @@ const Sidebar = ({ userRole }) => {
       { path: '/mentors', label: 'Mentors', icon: RiTeamLine },
       { path: '/reports', label: 'Reports', icon: RiFileList3Line },
       { path: '/sdg-overview', label: 'SDG Overview', icon: RiGlobalLine },
-      {path:  '/management-dashboard',label:'Statistics & Overview',icon: RiBarChartLine},
+      // {path:  '/management-dashboard',label:'Statistics',icon: RiBarChartLine},
     ],
     management: [
       { path: '/analytics', label: 'Analytics', icon: RiBarChartLine },
