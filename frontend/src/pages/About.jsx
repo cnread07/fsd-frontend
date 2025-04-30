@@ -94,64 +94,63 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 bg-[#0f172a]">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={theme.animations.default}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-400">Our Team</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the passionate individuals behind Internify, dedicated to transforming the internship
-              experience for students worldwide.
-            </p>
-          </motion.div>
+      {/* Team Section */}
+<section className="py-20 px-4 bg-[#0f172a]">
+  <div className="container mx-auto max-w-6xl">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={theme.animations.default}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-400">Our Team</h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        Meet the passionate individuals behind Internify, dedicated to transforming the internship
+        experience for students worldwide.
+      </p>
+    </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'John Doe',
-                role: 'Founder & CEO',
-                image: '/team-1.jpg',
-              },
-              {
-                name: 'Jane Smith',
-                role: 'Head of Education',
-                image: '/team-2.jpg',
-              },
-              {
-                name: 'Mike Johnson',
-                role: 'Technical Lead',
-                image: '/team-3.jpg',
-              },
-            ].map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ ...theme.animations.default, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-[#0f172a] rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/20 transition-shadow"
-              >
-                <div className="h-64 bg-gray-700 relative">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-indigo-400">{member.name}</h3>
-                  <p className="text-gray-400">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          name: 'John Doe',
+          role: 'Founder & CEO',
+          image: '/images/man1.jpeg',
+        },
+        {
+          name: 'Jane Smith',
+          role: 'Head of Education',
+          image: '/images/woman.jpeg',
+        },
+        {
+          name: 'Mike Johnson',
+          role: 'Technical Lead',
+          image: '/images/man2.jpg',
+        },
+      ].map((member, index) => (
+        <motion.div
+          key={member.name}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ ...theme.animations.default, delay: index * 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center text-center"
+        >
+          <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-indigo-500/20">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
+          <h3 className="text-2xl font-bold mb-2 text-indigo-400">{member.name}</h3>
+          <p className="text-gray-400 text-lg">{member.role}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-20 px-4">
